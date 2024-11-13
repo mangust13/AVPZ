@@ -31,7 +31,7 @@ def create_criteria_tab(notebook):
         ["", "Загальна/середня кількість балів"]
     ]
 
-    values_before_slash = [
+    weights = [
         ["8", "5", "9", "7"],
         ["5", "9", "6", "5"],
         ["10", "6", "9", "6"],
@@ -44,7 +44,7 @@ def create_criteria_tab(notebook):
         ["7", "8", "10", "10"],
     ]
 
-    values_after_slash = [
+    score = [
         ["10", "9", "10", "8.05"],
         ["9", "8", "8", "7.50"],
         ["9", "7", "9", "6.10"],
@@ -112,7 +112,7 @@ def create_criteria_tab(notebook):
     label.grid(row=2, column=2, columnspan=4, padx=1, pady=1, sticky="nsew")
 
     for row, (label_data, before_data, after_data) in enumerate(
-            zip(criteria_labels, values_before_slash, values_after_slash), start=3):
+            zip(criteria_labels, weights, score), start=3):
         ttk.Label(tab, text=label_data[0], anchor="center", borderwidth=1, relief="solid").grid(row=row, column=0, padx=1, pady=1, sticky="nsew")
         ttk.Label(tab, text=label_data[1], anchor="center", borderwidth=1, relief="solid").grid(row=row, column=1, padx=1, pady=1, sticky="nsew")
 
@@ -164,4 +164,4 @@ def create_criteria_tab(notebook):
         tab.grid_rowconfigure(row, weight=1)
 
     update_totals()
-
+    return weights,score

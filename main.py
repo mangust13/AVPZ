@@ -14,7 +14,7 @@ def create_notebook():
 
 notebook = create_notebook()
 
-create_criteria_tab(notebook)
-create_star_chart_tab(notebook)
+weights,score=create_criteria_tab(notebook)
+create_star_chart_tab(notebook,weights,score)
 
 root.mainloop()
